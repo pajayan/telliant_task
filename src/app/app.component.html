@@ -1,0 +1,68 @@
+<div style="overflow: auto;">
+  <div style="width: 20%;float: left">
+    <input type="checkbox" name="vehicle1" value="Bike">
+    <label for="vehicle1">All</label><br>
+    <input type="checkbox" name="vehicle2" value="Car">
+    <label for="vehicle2">Accepted</label><br>
+  </div>
+  <div style="width: 20%;float: left">
+    <input type="checkbox" name="vehicle1" value="Bike">
+    <label for="vehicle1">Deleted</label><br>
+    <input type="checkbox" name="vehicle2" value="Car">
+    <label for="vehicle2">Referred</label><br>
+  </div>
+  <div style="width: 20%;float: left">
+    <input type="checkbox" name="vehicle1" value="Bike">
+    <label for="vehicle1">Completed</label><br>
+    <input type="checkbox" name="vehicle2" value="Car">
+    <label for="vehicle2">Existing</label><br>
+  </div>
+  <div style="width: 20%;float: left">
+    <input type="checkbox" name="vehicle1" value="Bike">
+    <label for="vehicle1">Proposed</label><br>
+    <input type="checkbox" name="vehicle2" value="Car">
+    <label for="vehicle2">Unacepted</label><br>
+  </div>
+  <div style="width: 20%;float: left">
+    <label for="cars" style="display: block;">Th/Q/A</label>
+    <select id="cars">
+      <option>Select</option>
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="opel">Opel</option>
+      <option value="audi">Audi</option>
+    </select>
+  </div>
+</div>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Tx Plan Date</th>
+      <th>Th</th>
+      <th>Surface</th>
+      <th>Code</th>
+      <th>Procedure Description</th>
+      <th>Plan Type</th>
+      <th>Visit</th>
+      <th>Status</th>
+      <th>Provider</th>
+      <th>Office</th>
+      <th>DOS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of tabledata">
+      <td>{{data.txdate}}</td>
+      <td>{{data.th}}</td>
+      <td>{{data.surface}}</td>
+      <td>{{data.code}}</td>
+      <td>{{data.procedure}}</td>
+      <td>{{data.plantype}}</td>
+      <td>{{data.visit}}</td>
+      <td>{{data.status}}</td>
+      <td>{{data.provider}}</td>
+      <td>{{data.office}}</td>
+      <td>{{data.dos}}</td>
+    </tr>
+  </tbody>
+</table>
