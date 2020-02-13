@@ -1,6 +1,6 @@
 export interface ITabledata {
     txdate: string;
-    th: number;
+    th: string;
     surface: string;
     code: string;
     procedure: string;
