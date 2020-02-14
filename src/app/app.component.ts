@@ -1,18 +1,19 @@
 import { Component, Pipe, PipeTransform } from '@angular/core';
 import { TableData } from './tabledata';
+import {IFilterData, ITableData} from './table';
 
 @Pipe({name: 'filterPipe', pure: false})
-export class MyPipe implements PipeTransform {
-    transform(values: any, args?: any): any[] {
+export class CustomFilterPipe implements PipeTransform {
+    transform(values: ITableData[], args?: IFilterData): ITableData[] {
       values = values.filter(a => {
         return args.statusArr.indexOf(a.status) >= 0;
       }); 
       if(args.thValue) {
-       values = values.filter(b => {
-        return args.thValue ? b.th === args.thValue: true;
-      });  
-    }
-      return values ;  
+        values = values.filter(b => {
+          return args.thValue ? b.th === args.thValue: true;
+        });  
+      }
+      return values;  
     }
 }
 
@@ -34,9 +35,7 @@ export class AppComponent  {
   ];
   originalTabledata = [];
   thArray :number[] = [];
-  thValue = 0;
-
-  filterObj = {
+  filterObj : IFilterData =  {
     statusArr : [],
     thValue: ''
   }

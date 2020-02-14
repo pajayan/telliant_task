@@ -1,5 +1,5 @@
-import {ITabledata} from './table';
-export const TableData: ITabledata[] =  [
+import {ITableData} from './table';
+export const TableData: ITableData[] =  [
 {
     txdate: '11/21/2019',
     th: "7",

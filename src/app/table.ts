@@ -1,4 +1,4 @@
-export interface ITabledata {
+export interface ITableData {
     txdate: string;
     th: string;
     surface: string;
@@ -10,4 +10,8 @@ export interface ITabledata {
     provider: string;
     office: string;
     dos: string;
+}
+export interface IFilterData {
+        statusArr : Array<string>;
+        thValue: string;
 }
