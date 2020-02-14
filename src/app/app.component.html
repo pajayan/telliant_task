@@ -1,14 +1,14 @@
 <div style="overflow: auto;margin: 20px 0">
   <div style="width: 80%;float: left">
     <div style="width: 25%;float: left" *ngFor="let s of allStatuses">
-      <input type="checkbox" [(ngModel)]="s.checked" (click)="updateFilter(s)">
+      <input type="checkbox" [(ngModel)]="s.checked" (change)="filterList(s)">
       <label>{{s.status}}</label>
     </div>
   </div>  
   <div style="width: 20%;float: left">
     <label for="th" style="display: block;">Th/Q/A</label>
-    <select id="th" [(ngModel)]="thValue" (change)="updateFilter($event)">
-      <option value="0">Select</option>
+    <select id="th" [(ngModel)]="filterObj.thValue">
+      <option value="">Select</option>
       <option *ngFor="let th of thArray" [value]="th">
         {{th}}
       </option>
@@ -32,7 +32,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let a of originalTabledata | filterPipe: filterArr">
+    <tr *ngFor="let a of originalTabledata | filterPipe: filterObj">
       <td>{{a.txdate}}</td>
       <td>{{a.th}}</td>
       <td>{{a.surface}}</td>
@@ -45,7 +45,7 @@
       <td>{{a.office}}</td>
       <td>{{a.dos}}</td>
     </tr>
-    <tr *ngIf="originalTabledata.length === 0">
+    <tr *ngIf="(originalTabledata | filterPipe: filterObj).length === 0">
       <td colspan="11" style="text-align: center;">No records found</td>
     </tr>
   </tbody>
